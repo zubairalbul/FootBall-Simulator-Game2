@@ -48,8 +48,21 @@ namespace FootBall_Simulator_Game2
             // Display the attack and defense skills
             Console.WriteLine($"Attacking Skill: {AttackSkill}, Luck Factor: {luckFactor}, Defending Skill: {defenseSkill}");
 
-            
+            // Determine if the attack is successful (attack skill + luck must be greater than defense skill)
+            if (AttackSkill + luckFactor > (defenseSkill + 5))
+            {
+                Console.WriteLine("Goal!"); // Attack is successful
+                attacking.Score++; // Increase the attacking team's score by 1
+            }
+            else
+            {
+                Console.WriteLine("Defended successfully!"); // Defense was successful
+            }
+            // Display the current score of both teams after this turn
+            Console.WriteLine($"Current Score: {team1.Name}: {team1.Score} | {team2.Name}: {team2.Score}");
+        
         }
+
         
     }
 }
