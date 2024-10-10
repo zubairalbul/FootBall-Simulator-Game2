@@ -50,8 +50,23 @@ namespace FootBall_Simulator_Game2
             Console.WriteLine($"{(result == 1 ? team1.Name : team2.Name)} will start the game.");
             return result;
         }
-        // Simulate a half of the game, which consists of 5 turns
-       
+        // Simulate a half of the game
+        private void SimulateHalf(int startingTeam, int half)
+        {
+            for (int turn = 1; turn <= 5; turn++)
+            {
+                if (turn % 2 == (startingTeam == 1 ? 1 : 0)) // Determine which team attacks this turn
+                {
+                    Console.WriteLine($"\nTurn {turn + (half == 2 ? 4 : 0)}: {team1.Name} are attacking...");
+                    GameFlow(team1, team2); // Simulate team1 attacking
+                }
+                else
+                {
+                    Console.WriteLine($"\nTurn {turn + (half == 2 ? 5 : 0)}: {team2.Name} are attacking...");
+                    GameFlow(team2, team1); // Simulate team2 attacking
+                }
+            }
+        }
         private void GameFlow(ITeam attacking,  ITeam defending)
         {
             
