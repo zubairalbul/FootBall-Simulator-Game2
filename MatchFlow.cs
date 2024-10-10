@@ -62,7 +62,26 @@ namespace FootBall_Simulator_Game2
             Console.WriteLine($"Current Score: {team1.Name}: {team1.Score} | {team2.Name}: {team2.Score}");
         
         }
-
+        // Display the final score and declare the winner or if it's a draw
+        private void DisplayFinalScore()
+        {
+            Console.WriteLine($"\nFinal Score:\n{team1.Name}: {team1.Score} | {team2.Name}: {team2.Score}");
+            if (team1.Score > team2.Score)
+            {
+                Console.WriteLine($"\n{team1.Name} wins!");
+            }
+            else if (team2.Score > team1.Score)
+            {
+                Console.WriteLine($"\n{team2.Name} wins!");
+            }
+            else
+            {
+                Console.WriteLine("\nIt's a draw!");
+            }
+        }
+        // Display all players on the team, including their name, position, and skill level
         
     }
+
 }
+
