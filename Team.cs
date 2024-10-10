@@ -11,7 +11,7 @@ namespace FootBall_Simulator_Game2
         //Team's Name and List of Players:
         public string Name { get; private set; }
         public int Score { get; private set; }
-        List<Players> players { get; private set; }= new List<Players>();
+        List<IPlayer> players { get; private set; }= new List<IPlayer>();
     }
 }
     
