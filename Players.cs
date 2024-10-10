@@ -13,6 +13,11 @@ namespace FootBall_Simulator_Game2
         public string Position { get; private set; }
         public int Skill {  get; private set; }
         // Constructor to initialize player with a name, position, and skill
-        
+        public Players  (string name, string Position, int Skill)
+        {
+            Name = name;
+            this.Position= Position;
+            this.Skill = Skill;
+        }   
     }
 }
