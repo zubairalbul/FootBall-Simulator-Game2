@@ -33,7 +33,25 @@ namespace FootBall_Simulator_Game2
             // Display players for both teams
             DisplayTeamPlayers(team1);
             DisplayTeamPlayers(team2);
+            Console.WriteLine("\nCoin toss(:>)...");
+            int startingTeam = CoinToss(); // Determine which team starts first
+                                           // Simulate the first and second half
+            Console.WriteLine("\n------ First Half ------");
+            SimulateHalf(startingTeam, 1);
+            Console.WriteLine("\n------- Second Half ------");
+            Console.WriteLine($"\n{team2.Name} Started the second half\n ");
+            SimulateHalf(startingTeam == 1 ? 2 : 1, 2);
+            // Display the final score and declare the winner
+            DisplayFinalScore();
         }
+        private int CoinToss()
+        {
+            int result = random.Next(1, 3); // Random value 1 or 2
+            Console.WriteLine($"{(result == 1 ? team1.Name : team2.Name)} will start the game.");
+            return result;
+        }
+        // Simulate a half of the game, which consists of 5 turns
+       
         private void GameFlow(ITeam attacking,  ITeam defending)
         {
             
