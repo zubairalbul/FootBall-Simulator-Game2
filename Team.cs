@@ -10,7 +10,7 @@ namespace FootBall_Simulator_Game2
     {
         //Team's Name and List of Players:
         public string Name { get; private set; }
-        public int Score { get; private set; }
+        public int Score { get; set; } = 0;
         public List<IPlayer> players { get; private set; }= new List<IPlayer>();
         private IPlayerGenerator PlayerGenerator;
         public Team(string name, IPlayerGenerator playerGenerator)
@@ -31,28 +31,28 @@ namespace FootBall_Simulator_Game2
                 players.Add(PlayerGenerator.CreatePlayer(positioning));//noticed we need an list to store the positions of the players.
             }
         }
-        //public int GetAttackingSkill()
-        //{
-        //    int attackingSkill = 0;
-        //    foreach (var player in players)
-        //    {
-        //        if (player.Position == "Forward" || player.Position == "Midfielder")
-        //            attackingSkill += player.Skill;
-        //    }
-        //    return attackingSkill;
-        //}// function for attacking purpose which will calculate forwords and midfielders skills.
-        //public int GetDefendingSkills()
-        //{
-        //    int defendingSkills = 0;
-        //    int GoalKeeperSkils = 0;
-        //    foreach (var player in players)
-        //    {
-        //        if (player.Position == "Defender") defendingSkills += player.Skill;
-        //        else if (player.Position == "GoalKeeper") GoalKeeperSkils += player.Skill;
+        public int GetAttackingSkill()
+        {
+            int attackingSkill = 0;
+            foreach (var player in players)
+            {
+                if (player.Position == "Forward" || player.Position == "Midfielder")
+                    attackingSkill += player.Skill;
+            }
+            return attackingSkill;
+        }// function for attacking purpose which will calculate forwords and midfielders skills.
+        public int GetDefendingSkill()
+        {
+            int defendingSkills = 0;
+            int GoalKeeperSkils = 0;
+            foreach (var player in players)
+            {
+                if (player.Position == "Defender") defendingSkills += player.Skill;
+                else if (player.Position == "GoalKeeper") GoalKeeperSkils += player.Skill;
 
-        //    }
-        //    return defendingSkills + GoalKeeperSkils;
-        //}
+            }
+            return defendingSkills + GoalKeeperSkils;
+        }
     }
 }
     
