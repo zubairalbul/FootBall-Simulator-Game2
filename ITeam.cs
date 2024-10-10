@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace FootBall_Simulator_Game2
 {
-    internal interface ITeam
+    public interface ITeam
     {
+        string Name { get; }
+        int Score { get; set; }
+        List<IPlayer> players { get; }//List of the Players in each team.
     }
 }
