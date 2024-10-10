@@ -12,12 +12,12 @@ namespace FootBall_Simulator_Game2
         public string Name { get; private set; }
         public int Score { get; private set; }
         public List<IPlayer> players { get; private set; }= new List<IPlayer>();
-        
-        public Team(string name , int score, List<IPlayer> players)
+        private IPlayerGenerator PlayerGenerator;
+        public Team(string name, IPlayerGenerator playerGenerator)
         {
             Name = name;
-            Score = score;
-            this.players = players;
+            this.PlayerGenerator = playerGenerator;
+            GeneratePlayers();
         }// Constructor to initialize the team with a name
 
         private void GeneratePlayers() // This function is for Generating Players with names and positioning them.
@@ -28,7 +28,7 @@ namespace FootBall_Simulator_Game2
             for (int i = 0; i < 11; i++) 
             {
             string positioning= positions[i < 3 ? 0 : i < 7 ? 1 : i < 10 ? 2 : 3];
-                players.Add(playerFactory.CreatePlayer(positioning));//noticed we need an list to store the positions of the players.
+                players.Add(PlayerGenerator.CreatePlayer(positioning));//noticed we need an list to store the positions of the players.
             }
         }
     }
