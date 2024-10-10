@@ -8,8 +8,10 @@ namespace FootBall_Simulator_Game2
 {
     public interface ITeam
     {
-        string Name { get; }
-        int Score { get; set; }
-        List<IPlayer> players { get; }//List of the Players in each team.
+        public string Name { get; }
+       public int Score { get; set; }
+        public List<IPlayer> players { get; }//List of the Players in each team.
+        int GetAttackingSkill();
+        int GetDefendingSkill();
     }
 }

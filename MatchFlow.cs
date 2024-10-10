@@ -28,6 +28,15 @@ namespace FootBall_Simulator_Game2
                 Console.WriteLine($"{i + 1}. {player.Name} - {player.Position} (Skill: {player.Skill})");
             }
         }
+        private void GameFlow(ITeam attacking,  ITeam defending)
+        {
+            
+            int result1  = random.Next(0, attacking.players.Count);
+            // Calculate attacking team's total attacking skill
+            int AttackSkill = attacking.GetAttackingSkill();
+            // Calculate defending team's total defending skill
+            int defenseSkill = defending.GetDefendingSkill();
+        }
         public void Matchstart()
         {
             // Display players for both teams
