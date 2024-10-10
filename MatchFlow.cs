@@ -28,6 +28,12 @@ namespace FootBall_Simulator_Game2
                 Console.WriteLine($"{i + 1}. {player.Name} - {player.Position} (Skill: {player.Skill})");
             }
         }
+        public void Matchstart()
+        {
+            // Display players for both teams
+            DisplayTeamPlayers(team1);
+            DisplayTeamPlayers(team2);
+        }
         private void GameFlow(ITeam attacking,  ITeam defending)
         {
             
@@ -36,12 +42,14 @@ namespace FootBall_Simulator_Game2
             int AttackSkill = attacking.GetAttackingSkill();
             // Calculate defending team's total defending skill
             int defenseSkill = defending.GetDefendingSkill();
+            // Add a random luck factor between -30 and +30 to the attacking team's skill
+            int luckFactor = random.Next(-1000, 1001);
+
+            // Display the attack and defense skills
+            Console.WriteLine($"Attacking Skill: {AttackSkill}, Luck Factor: {luckFactor}, Defending Skill: {defenseSkill}");
+
+            
         }
-        public void Matchstart()
-        {
-            // Display players for both teams
-            DisplayTeamPlayers(team1);
-            DisplayTeamPlayers(team2);
-        }
+        
     }
 }
